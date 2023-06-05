@@ -1,0 +1,2 @@
+powershell -command "Invoke-WebRequest -Uri https://aka.ms/amagent -OutFile setup.exe"
+powershell -command "Start-Process -FilePath setup.exe -ArgumentList '/Q:A /R:N /C:\""setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_SUBSCRIPTION_ID=$(Subscription.ID) OPINSIGHTS_WORKSPACE_RESOURCE_ID=$(WorkspaceResource.ID) OPINSIGHTS_WORKSPACE_ID=$(Workspace.ID) OPINSIGHTS_WORKSPACE_KEY=$(Workspace.KEY) /l*v C:\TEMP\am.log\"" ' -Wait -NoNewWindow"
